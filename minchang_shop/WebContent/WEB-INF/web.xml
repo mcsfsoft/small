@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>minchang_shop</display-name>
+  
+  <!-- 登录 -->
+  <servlet>
+  	<servlet-name>UserLogin</servlet-name>
+  	<servlet-class>com.qf.minchang.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserLogin</servlet-name>
+  	<url-pattern>/userLogin</url-pattern>
+  </servlet-mapping>
+	<!-- 注册 -->
+  	  <servlet>
+  	<servlet-name>UserRegister</servlet-name>
+  	<servlet-class>com.qf.minchang.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UserRegister</servlet-name>
+  	<url-pattern>/reg</url-pattern>
+  </servlet-mapping>
+
+  <!-- admin拦截器 -->
+  <filter>
+  <filter-name>Auth</filter-name>
+  <filter-class>com.qf.minchang.filter.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>Auth</filter-name>
+  	<url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
